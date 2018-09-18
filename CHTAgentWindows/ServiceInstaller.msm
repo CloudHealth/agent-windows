@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Module Id="CHTAgent" Language="1033" Version="1.0.0.0">
+    <Package Id="ca117575-3838-4fc3-8d36-a3d1bcb74ffc" Manufacturer="CloudHealth Technologies" InstallerVersion="200" />
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="MergeRedirectFolder" FileSource=".">
+        <Component Id="owcB7461B87B05DCA45F57E1CB0917F32A7" Guid="8E927E41-EB50-4491-B109-C6E084EF7F57">
+          <File Id="owfB7461B87B05DCA45F57E1CB0917F32A7" Source="CHTAgent.exe" KeyPath="yes" />
+          <ServiceInstall Id="installWS" Name="CHTAgent" DisplayName="CloudHealth Agent" Description="CloudHealth Technologies Agent" Start="auto" Type="ownProcess" ErrorControl="normal" />
+          <ServiceControl Id="controlWS" Name="CHTAgent" Remove="both" Stop="both" Start="install" Wait="no" />
+        </Component>
+      </Directory>
+    </Directory>
+  </Module>
+</Wix>
